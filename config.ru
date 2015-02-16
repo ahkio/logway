@@ -13,8 +13,4 @@ set :root,        root_dir
 set :app_file,    File.join(root_dir, 'logway.rb')
 disable :run, :reload
 
-log = File.new('log/logway.log', 'a+')
-$stdout.reopen(log)
-$stderr.reopen(log)
-
 run Sinatra::Application
