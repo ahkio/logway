@@ -1,5 +1,3 @@
-require 'sinatra'
-
 post '/' do
   logger.info request.body.read
 end
