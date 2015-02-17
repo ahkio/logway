@@ -1,5 +1,6 @@
 post '/' do
-  log = "log/logway.log"
+  drain = request.env['HTTP_LOGPLEX_DRAIN_TOKEN'] || 'unknown'
+  log = "log/logway-#{drain}.log"
   data = request.body.read
 
   begin
