@@ -1,5 +1,6 @@
 post '/' do
-  log = 'log/logway.log'
+  today = Date.today.strftime("%Y-%m-%d")
+  log = "log/logway-#{today}.log"
   data = request.body.read
 
   io = File.open(log, 'a+') { |f| f.write("#{data}\n") }
