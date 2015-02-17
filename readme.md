@@ -41,7 +41,7 @@ Add logrotate config:
 ```bash
 # /etc/logrotate.d/logway
 
-/home/ahkio/logway/log/logway.log {
+/home/ahkio/logway/log/logway-*.log {
   daily
   dateext
   rotate 30
