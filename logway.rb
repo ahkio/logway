@@ -3,7 +3,7 @@ post '/' do
   log = "log/logway-#{today}.log"
   data = request.body.read
 
-  io = File.open(log, 'a+') { |f| f.write("#{data}\n") }
+  io = File.open(log, 'a+') { |f| f.write("#{data}") }
 
   code = io ? 200 : 500
   status code
