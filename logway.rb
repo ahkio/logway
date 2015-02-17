@@ -1,12 +1,14 @@
 post '/' do
-  today = Date.today.strftime("%Y-%m-%d")
-  log = "log/logway-#{today}.log"
+  log = "log/logway.log"
   data = request.body.read
 
-  io = File.open(log, 'a+') { |f| f.write("#{data}") }
+  begin
+    File.open(log, 'a+') { |f| f.write("#{data}") }
+  rescue
+    halt 500
+  end
 
-  code = io ? 200 : 500
-  status code
+  status 200
 end
 
 get '/' do
