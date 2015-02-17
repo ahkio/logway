@@ -7,6 +7,12 @@ Clone repo:
 git clone git@github.com:ahkio/logway.git /home/ahkio/logway
 ```
 
+Fix permissions:
+```bash
+chmod 0771 /home/ahkio /home/ahkio/logway /home/ahkio/logway/logs
+chown ahkio:logstash /home/ahkio/logway/log
+```
+
 Add Apache config:
 ```apache
 # /etc/httpd/conf.d/logway.conf
