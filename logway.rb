@@ -13,5 +13,5 @@ post '/' do
 end
 
 get '/' do
-  'Logway, by Ahkio.'
+  'Logway.'
 end
