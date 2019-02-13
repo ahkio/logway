@@ -50,3 +50,9 @@ Add logrotate config:
   missingok
 }
 ```
+
+## Run locally
+
+```
+rackup -p 4567
+```
