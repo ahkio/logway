@@ -4,13 +4,13 @@ First install Apache + Passenger.
 
 Clone repo:
 ```
-git clone git@github.com:ahkio/logway.git /home/ahkio/logway
+git clone git@github.com:jonikanerva/logway.git /home/your_site/logway
 ```
 
 Fix permissions:
 ```bash
-chmod 0771 /home/ahkio /home/ahkio/logway /home/ahkio/logway/logs
-chown ahkio:logstash /home/ahkio/logway/log
+chmod 0771 /home/your_site /home/your_site/logway /home/your_site/logway/logs
+chown your_site:logstash /home/your_site/logway/log
 ```
 
 Add Apache config:
@@ -20,15 +20,15 @@ Add Apache config:
 <VirtualHost *:443>
   SSLEngine on
 
-  ServerName logway.example.com
-  DocumentRoot /home/ahkio/logway/public
+  ServerName logway.your_site.com
+  DocumentRoot /home/your_site/logway/public
   CustomLog /var/log/httpd/logway_access_log combined
   ErrorLog /var/log/httpd/logway_error_log
 
-  <Directory /home/ahkio/logway/public>
+  <Directory /home/your_site/logway/public>
     AuthName Logway
     AuthType Basic
-    AuthUserFile /home/ahkio/htpasswd_users
+    AuthUserFile /home/your_site/htpasswd_users
     Require user logdrainuser
     Order allow,deny
     Satisfy any
@@ -41,7 +41,7 @@ Add logrotate config:
 ```bash
 # /etc/logrotate.d/logway
 
-/home/ahkio/logway/log/logway-*.log {
+/home/your_site/logway/log/logway-*.log {
   daily
   dateext
   rotate 30
